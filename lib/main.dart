@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sql_netcore/screens/homepage.dart';
+import 'package:sql_netcore/screens/loginscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const homepage(),
+      home: const LoginScreen(),
     );
   }
 }
