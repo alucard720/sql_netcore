@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sql_netcore/widgets/input_decoration.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -17,48 +18,103 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Column cuerpocompleto(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 250,
-        ),
-        Container(
-          padding: const EdgeInsets.all(20),
-          margin: const EdgeInsets.symmetric(horizontal: 30),
-          width: double.infinity,
-          height: 300,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 15,
-                  offset: Offset(0, 5),
-                )
-              ]),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Login",
-                style: Theme.of(context).textTheme.headline4,
-              )
-            ],
+  SingleChildScrollView cuerpocompleto(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 250,
           ),
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        const Text(
-          'Crear una nueva Cuenta',
-          style: TextStyle(
-              color: Colors.black, fontSize: 14, fontWeight: FontWeight.normal),
-        ),
-      ],
+          Container(
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.symmetric(horizontal: 30),
+            width: double.infinity,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 15,
+                    offset: Offset(0, 5),
+                  )
+                ]),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Login",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Form(
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        autocorrect: false,
+                        decoration: Inputdecorations.inputDecoration(
+                          hintext: 'ejemplo@hotmail.com',
+                          labeltext: 'Correo Electronico',
+                          icon: const Icon(Icons.alternate_email_rounded),
+                        ),
+                        validator: (value) {
+                          String pattern =
+                              r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                          RegExp regExp = RegExp(pattern);
+                          return regExp.hasMatch(value ?? '')
+                              ? null
+                              : 'El Email ingresado no es correcto';
+                        },
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      TextFormField(
+                        autocorrect: false,
+                        decoration: Inputdecorations.inputDecoration(
+                            hintext: '*****',
+                            labeltext: 'contrasena',
+                            icon: const Icon(Icons.lock)),
+                      ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      MaterialButton(
+                        onPressed: () {},
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        disabledColor: Colors.grey,
+                        color: Colors.blueAccent,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 80, vertical: 15),
+                          child: const Text(
+                            'Ingresar',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 60,
+          ),
+          const Text(
+            'Crear una nueva Cuenta',
+            style: TextStyle(
+                color: Colors.black, fontSize: 14, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 
@@ -90,9 +146,9 @@ class LoginScreen extends StatelessWidget {
             child: bubble(),
           ),
           Positioned(
-            child: bubble(),
             top: 50,
             right: -30,
+            child: bubble(),
           )
         ],
       ),
