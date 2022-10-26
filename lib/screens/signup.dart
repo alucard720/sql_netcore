@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sql_netcore/screens/homescreen.dart';
-import 'package:sql_netcore/screens/signup.dart';
+import 'package:sql_netcore/screens/loginscreen.dart';
 import 'package:sql_netcore/widgets/input_decoration.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class SignUP extends StatelessWidget {
+  const SignUP({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class LoginScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "Login",
+                  "Registrarse",
                   style: Theme.of(context).textTheme.headline4,
                 ),
                 const SizedBox(
@@ -58,6 +58,16 @@ class LoginScreen extends StatelessWidget {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     child: Column(
                       children: [
+                        TextFormField(
+                          autocorrect: false,
+                          decoration: Inputdecorations.inputDecoration(
+                              hintext: 'Ingresar Cedula o Pasaporte',
+                              labeltext: 'Cedula o Pasaporte',
+                              icon: const Icon(Icons.person_add)),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
                         TextFormField(
                           autocorrect: false,
                           decoration: Inputdecorations.inputDecoration(
@@ -130,9 +140,9 @@ class LoginScreen extends StatelessWidget {
             ),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SignUP()));
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
             },
-            child: const Text('Crear una Nueva Cuenta'),
+            child: const Text('si ya tienes cuenta pulsa aqui'),
           )
         ],
       ),
