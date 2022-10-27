@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
-        height: double.infinity,
+        height: size.height,
         child: Stack(
           children: [logocaja(size), logo(), cuerpocompleto(context)],
         ),
@@ -23,12 +23,13 @@ class LoginScreen extends StatelessWidget {
   SingleChildScrollView cuerpocompleto(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const SizedBox(
-            height: 350,
+            height: 250,
           ),
           Container(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(15),
             margin: const EdgeInsets.symmetric(horizontal: 30),
             width: double.infinity,
             decoration: BoxDecoration(
