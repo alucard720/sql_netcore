@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:sql_netcore/screens/app_search.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,13 +12,11 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               Column(
-                children: [
-                  Container(
-                    child: Image.asset('images/'),
-                  )
+                children: <Widget>[
+                  AppSearch(),
                 ],
               ),
-              Padding(padding: EdgeInsets.symmetric(vertical: 100)),
+              Padding(padding: EdgeInsets.symmetric(vertical: 50)),
               Center(
                 child: CircularPercentIndicator(
                   animation: true,
