@@ -31,10 +31,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(padding: EdgeInsets.symmetric(vertical: 100)),
+                    Padding(
+                        padding: EdgeInsets.symmetric(
+                      vertical: 100,
+                    )),
                     Container(
                       margin: EdgeInsets.all(10),
                       padding: EdgeInsets.all(10),
@@ -53,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(10),
                       padding: EdgeInsets.all(10),
                       width: 100,
                       child: Image.asset(
