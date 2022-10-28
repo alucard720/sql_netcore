@@ -11,13 +11,6 @@ class AppSearch extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Busqueda',
-            style: TextStyle(
-              fontWeight: FontWeight.w900,
-              fontSize: 24,
-            ),
-          ),
           const SizedBox(height: 20),
           Row(
             children: [
@@ -37,7 +30,7 @@ class AppSearch extends StatelessWidget {
                       ),
                       SizedBox(width: 10),
                       Text(
-                        'Search',
+                        'Busqueda',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -45,16 +38,20 @@ class AppSearch extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(left: 10),
-                width: 50,
+                margin: const EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
+                width: 80,
                 height: 50,
                 decoration: BoxDecoration(
                   color: mainColor,
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: const Icon(
-                  Icons.tune,
-                  color: Colors.white,
+                child: Text(
+                  'Nueva Solicitud',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],

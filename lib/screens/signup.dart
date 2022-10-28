@@ -25,7 +25,7 @@ class SignUP extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 350,
+            height: 300,
           ),
           Container(
             padding: const EdgeInsets.all(20),
@@ -97,7 +97,7 @@ class SignUP extends StatelessWidget {
                           validator: (value) {
                             return (value != null && value.length >= 6)
                                 ? null
-                                : 'la contrasena debe ser mayor o igual a 8 caracteres';
+                                : 'la contrasena debe ser mayor o igual a 6 caracteres';
                           },
                         ),
                         const SizedBox(
