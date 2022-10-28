@@ -38,10 +38,9 @@ class AppSearch extends StatelessWidget {
                 ),
               ),
               Container(
+                constraints: BoxConstraints(minWidth: 20, maxHeight: 80),
                 margin: const EdgeInsets.all(10),
                 padding: EdgeInsets.all(10),
-                width: 80,
-                height: 50,
                 decoration: BoxDecoration(
                   color: mainColor,
                   borderRadius: BorderRadius.circular(10),

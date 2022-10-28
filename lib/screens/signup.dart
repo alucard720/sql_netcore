@@ -25,9 +25,10 @@ class SignUP extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(
-            height: 300,
+            height: 250,
           ),
           Container(
+            constraints: const BoxConstraints(maxHeight: 440, minHeight: 200),
             padding: const EdgeInsets.all(20),
             margin: const EdgeInsets.symmetric(horizontal: 30),
             width: double.infinity,
@@ -132,7 +133,7 @@ class SignUP extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 60,
+            height: 40,
           ),
           TextButton(
             style: TextButton.styleFrom(
