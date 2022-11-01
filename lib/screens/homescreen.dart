@@ -1,6 +1,16 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:sql_netcore/screens/app_search.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+_launchURLMinerd() async {
+  var url = Uri.parse("https://documentos.educacion.do/portal/");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw "cant connect to $url";
+  }
+}
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -13,7 +23,17 @@ class HomeScreen extends StatelessWidget {
           children: [
             Column(
               children: <Widget>[
-                const AppSearch(),
+                const SizedBox(
+                  height: 30,
+                ),
+                const Text(
+                  "PORTAL UNICO DE EDUCACION",
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueGrey),
+                  textAlign: TextAlign.center,
+                ),
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 40),
                 ),
@@ -34,33 +54,85 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                        padding: EdgeInsets.symmetric(
-                      vertical: 100,
-                    )),
-                    Container(
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(10),
-                      width: 150,
-                      height: 100,
-                      child: Image.asset(
-                        'images/Logo.png',
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 100,
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(10),
-                      width: 75,
-                      child: Image.asset(
-                        'images/mescyt.png',
+                      padding: const EdgeInsets.all(5),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Ink.image(
+                              image: const AssetImage('images/Logo.png'),
+                              width: 100,
+                              height: 100,
+                            ),
+                            const Center(
+                              child: ElevatedButton(
+                                onPressed: _launchURLMinerd,
+                                child: Text(
+                                  'Nueva Solicitud',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(10),
-                      width: 100,
-                      child: Image.asset(
-                        'images/logo-infotep.png',
+                      padding: const EdgeInsets.all(10),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Ink.image(
+                              image: const AssetImage('images/mescyt.png'),
+                              width: 100,
+                              height: 100,
+                            ),
+                            Center(
+                              child: ElevatedButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Nueva Solicitud',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Ink.image(
+                            image: const AssetImage('images/logo-infotep.png'),
+                            width: 100,
+                            height: 100,
+                          ),
+                          Center(
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  'Nueva Solicitud',
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                )),
+                          ),
+                        ],
                       ),
                     ),
                   ],
