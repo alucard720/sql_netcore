@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sql_netcore/providers/usuario_provider.dart';
-import 'package:sql_netcore/screens/homescreen.dart';
+import 'package:sql_netcore/route/route_generator.dart';
+
 import 'package:sql_netcore/screens/loginscreen.dart';
 
 void main() {
@@ -21,11 +22,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        routes: {
-          '/': (_) => const LoginScreen(),
-          'home': (_) => const HomeScreen(),
-        },
         initialRoute: '/',
+        onGenerateRoute: RouteGenerator.generateRoute,
+        home: const LoginScreen(),
       ),
     );
   }

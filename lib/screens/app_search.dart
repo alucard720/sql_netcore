@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sql_netcore/widgets/colors.dart';
 
 class AppSearch extends StatelessWidget {
   const AppSearch({Key? key}) : super(key: key);
@@ -11,7 +10,7 @@ class AppSearch extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Row(
             children: [
               Expanded(
@@ -35,22 +34,6 @@ class AppSearch extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints(minWidth: 20, maxHeight: 80),
-                margin: const EdgeInsets.all(10),
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: mainColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  'Nueva Solicitud',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],

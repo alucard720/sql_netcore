@@ -1,10 +1,29 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:sql_netcore/screens/app_search.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 _launchURLMinerd() async {
   var url = Uri.parse("https://documentos.educacion.do/portal/");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw "cant connect to $url";
+  }
+}
+
+_launchURLMescyt() async {
+  var url = Uri.parse("https://mescyt.gob.do");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw "cant connect to $url";
+  }
+}
+
+_launchURLInfotep() async {
+  var url = Uri.parse("https://www.infotep.gob.do");
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -21,21 +40,14 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            AppSearch(),
             Column(
               children: <Widget>[
                 const SizedBox(
-                  height: 30,
-                ),
-                const Text(
-                  "PORTAL UNICO DE EDUCACION",
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey),
-                  textAlign: TextAlign.center,
+                  height: 10,
                 ),
                 const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 40),
+                  padding: EdgeInsets.symmetric(vertical: 20),
                 ),
                 Center(
                   child: CircularPercentIndicator(
@@ -43,12 +55,15 @@ class HomeScreen extends StatelessWidget {
                     animationDuration: 1000,
                     radius: 100,
                     lineWidth: 20,
-                    percent: 0.5,
+                    percent: 0.0,
                     progressColor: Colors.blue,
-                    backgroundColor: Colors.deepOrangeAccent.shade200,
+                    backgroundColor: Colors.blueGrey.shade200,
                     circularStrokeCap: CircularStrokeCap.round,
-                    center: const Text('50%'),
+                    center: const Text('0%'),
                   ),
+                ),
+                SizedBox(
+                  height: 40,
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.min,
@@ -98,10 +113,10 @@ class HomeScreen extends StatelessWidget {
                               width: 100,
                               height: 100,
                             ),
-                            Center(
+                            const Center(
                               child: ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Text(
+                                  onPressed: _launchURLMescyt,
+                                  child: Text(
                                     'Nueva Solicitud',
                                     style: TextStyle(
                                         fontSize: 12,
@@ -122,10 +137,10 @@ class HomeScreen extends StatelessWidget {
                             width: 100,
                             height: 100,
                           ),
-                          Center(
+                          const Center(
                             child: ElevatedButton(
-                                onPressed: () {},
-                                child: const Text(
+                                onPressed: _launchURLInfotep,
+                                child: Text(
                                   'Nueva Solicitud',
                                   style: TextStyle(
                                       fontSize: 12,
@@ -142,7 +157,13 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text(
+          'PORTAL UNICO DE EDUCACION',
+          style: TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
       drawer: Drawer(
         width: 200,
         backgroundColor: Colors.white,
